@@ -67,8 +67,6 @@ const fun = async () => {
 const GET = async () => {
   const filteredMatches = await fun();
 
-  await setTimeout(() => fun(), 30000);
-
   return NextResponse.json(filteredMatches, { status: 200 });
 };
 
