@@ -2,9 +2,11 @@ import { NextResponse } from "next/server";
 import { fetchMatches, loadMatches, saveMatches } from "@/utils";
 import { getMongoCollection } from "@/utils/mongo";
 
-const GET = async () => {
+const fun = async () => {
   const prevMatches = await loadMatches();
   const matches = await fetchMatches();
+
+  console.log("start parse matches");
 
   // 1. Найти завершённые (которых больше нет среди актуальных)
   const currentIds = matches.map((m) => m.id);
@@ -58,6 +60,14 @@ const GET = async () => {
   });
 
   await saveMatches(filteredMatches);
+
+  return filteredMatches;
+};
+
+const GET = async () => {
+  const filteredMatches = await fun();
+
+  await setTimeout(() => fun(), 30000);
 
   return NextResponse.json(filteredMatches, { status: 200 });
 };
