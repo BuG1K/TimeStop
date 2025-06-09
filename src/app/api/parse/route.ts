@@ -6,8 +6,6 @@ const fun = async () => {
   const prevMatches = await loadMatches();
   const matches = await fetchMatches();
 
-  console.log("start parse matches");
-
   // 1. Найти завершённые (которых больше нет среди актуальных)
   const currentIds = matches.map((m) => m.id);
   const finished = prevMatches.filter((m) => !currentIds.includes(m.id));

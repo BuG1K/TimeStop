@@ -150,10 +150,14 @@ const MatchHistory: React.FC = () => {
                             {goal.team.name}
                           </Typography>
                           <Typography sx={{ mx: 1, color: "#aaa" }}>
-                            Период: {goal.period}
+                            Период:
+                            {" "}
+                            {goal.period}
                           </Typography>
                           <Typography sx={{ mx: 1, color: "#aaa" }}>
-                            Время: {goal.time}
+                            Время:
+                            {" "}
+                            {goal.time}
                           </Typography>
                         </Box>
                       ))}

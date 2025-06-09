@@ -113,7 +113,10 @@ const LiveMatches: React.FC = () => {
                     }}
                   />
                   <Typography variant="h6" sx={{ flex: 1, fontWeight: 600, color: "#fff" }}>
-                    {match.teams.team1.name} vs {match.teams.team2.name}
+                    {match.teams.team1.name}
+                    {" "}
+                    vs
+                    {match.teams.team2.name}
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={2} alignItems="center" mb={1}>
@@ -124,10 +127,14 @@ const LiveMatches: React.FC = () => {
                       .join(" | ")}
                   </Typography>
                   <Typography color="text.secondary" sx={{ fontSize: 14 }}>
-                    Период: {match.status.periodNow}
+                    Период:
+                    {" "}
+                    {match.status.periodNow}
                   </Typography>
                   <Typography color="text.secondary" sx={{ fontSize: 14 }}>
-                    Время: {match.status.time}
+                    Время:
+                    {" "}
+                    {match.status.time}
                   </Typography>
                 </Stack>
                 <Stack direction="row" spacing={2} alignItems="center" mb={1}>
@@ -168,10 +175,14 @@ const LiveMatches: React.FC = () => {
                             {goal.team.name}
                           </Typography>
                           <Typography sx={{ mx: 1, color: "#aaa" }}>
-                            Period: {goal.period}
+                            Period:
+                            {" "}
+                            {goal.period}
                           </Typography>
                           <Typography sx={{ mx: 1, color: "#aaa" }}>
-                            Time: {goal.time}
+                            Time:
+                            {" "}
+                            {goal.time}
                           </Typography>
                         </Box>
                       ))}
