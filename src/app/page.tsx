@@ -1,5 +1,11 @@
+import { LiveMatches } from "@/components/LiveMatches";
+import MatchHistory from "@/components/MatchHistory/MatchHistory";
+
 const AppPage = () => (
-  <h1>34</h1>
+  <>
+    {/* <LiveMatches /> */}
+    <MatchHistory />
+  </>
 );
 
 export default AppPage;
