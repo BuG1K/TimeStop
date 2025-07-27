@@ -1,9 +1,10 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  compiler: {
-    styledComponents: true,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    css: {
+      lightningcss: false,
+    },
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
