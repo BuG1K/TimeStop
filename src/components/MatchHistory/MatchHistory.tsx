@@ -67,7 +67,6 @@ const MatchHistory: React.FC = () => {
     setLoading(true);
     try {
       const res = await fetch(`/api/match?page=${pageNum}&limit=10`);
-      console.log(1)
       const data: ApiResponse = await res.json();
       setMatches(data.matches);
       setTotalPages(data.totalPages);
