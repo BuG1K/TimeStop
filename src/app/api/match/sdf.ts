@@ -3,43 +3,9 @@ import { getMongoCollection } from "@/utils/mongo";
 import fs from "fs";
 import path from "path";
 
-const players = [
-  "PINGWIN",
-  "KLOZE",
-  "EMPEROR",
-  "BLACKICE",
-    // "SAMURAI",
-    // "Lovelas",
-    // "ALADDIN",
-    // "ICEMAN",
-    // "COBAIN",
-    // "OVI",
-    // "P1RATE",
-    // "Griezmann",
-    // "KHAN",
-    // "Machette",
-    // "M1CHELIN",
-    // ----------
-    // "PUCK",
-    // "GOALNIK",
-    // "PRO100RAK",
-    // "ENJOOOY",
-    // "CR1STAL",
-    // "FM82",
-    // "BALMY2820",
-    // "PETYA98",
-  ];
-
 export const GET = async () => {
-  const query = {
-    $or: [
-      { "teams.team1.player": { $in: players } },
-      { "teams.team2.player": { $in: players } },
-    ],
-  };
-
   const collection = await getMongoCollection("finished_matches");
-  let matches = await collection.find(query).toArray();
+  let matches = await collection.find({}).toArray();
 
   // Фильтрация по последним 30 дням
   const now = new Date();
@@ -58,7 +24,7 @@ export const GET = async () => {
       matchDate.setFullYear(thisYear - 1);
     }
     const diffDays = (now.getTime() - matchDate.getTime()) / (1000 * 60 * 60 * 24);
-    return diffDays <= 7 && diffDays >= 0;
+    return diffDays <= 30 && diffDays >= 0;
   });
 
   // Удаляем дубли по id матча, но сохраняем матчи без id
@@ -85,3 +51,6 @@ export const GET = async () => {
   console.log("Количество матчей:", matches.length);
   return NextResponse.json(matches);
 };
+
+
+

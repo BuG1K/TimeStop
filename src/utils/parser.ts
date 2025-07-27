@@ -31,7 +31,9 @@ const parseScore = (scoreText: string): {
 const parseTeams = (text: string): { name: string, player: string }[] => {
   const parts = text.split(" - ");
   return parts.map((part) => {
-    const match = part.match(/^(.+?)(?:\s*\((.+)\))?$/);
+    // Исправленная регулярка: ищет имя и ник в скобках, а после скобок может быть лишняя цифра
+    const match = part.match(/^(.+?)\s*\(([^)]+)\)\d*$/)
+                  || part.match(/^(.+?)(?:\s*\((.+)\))?$/);
     if (match) {
       return {
         name: match[1].trim(),

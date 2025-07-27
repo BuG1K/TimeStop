@@ -1,3 +1,5 @@
+"use client";
+
 import MatchHistory from "@/components/MatchHistory/MatchHistory";
 
 const AppPage = () => (

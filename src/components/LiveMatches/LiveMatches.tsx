@@ -66,9 +66,10 @@ const LiveMatches: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchMatches();
-    const interval = setInterval(fetchMatches, 3000); // 30 секунд
-    return () => clearInterval(interval);
+    // fetchMatches();
+
+    // const interval = setInterval(fetchMatches, 3000); // 30 секунд
+    // return () => clearInterval(interval);
   }, []);
 
   return (
